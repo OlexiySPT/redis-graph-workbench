@@ -15,9 +15,47 @@
     "commands": [
       {
         "command": "redis-graph-workbench.runQuery",
-        "title": "Run RedisGraph Query"
+        "title": "Run RedisGraph Query",
+        "icon": {
+          "dark": "media/run-svgrepo-com-dark.svg",
+          "light": "media/run-svgrepo-com-light.svg"
+        }
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "redisgraphworkbench-sidebar-view",
+          "title": "RedisGraph Workbench",
+          "icon": "media/redis-svgrepo-com.svg"
+        }
+      ]
+    },
+    "views": {
+      "redisgraphworkbench-sidebar-view": [
+        {
+          "id": "redisgraphworkbench-sidebar-connection",
+          "name": "Connection",
+          "initialSize": 20
+        },
+        {
+          "id": "redisgraphworkbench-sidebar-content",
+          "name": "Content"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "redis-graph-workbench.runQuery"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "redis-graph-workbench.runQuery"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -28,14 +66,18 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
     "@vscode/test-cli": "^0.0.4",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "node-redis": "^0.1.7",
+    "redis": "^4.6.12"
   }
 }
